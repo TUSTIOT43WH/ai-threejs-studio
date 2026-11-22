@@ -1,0 +1,27 @@
+{
+  "name": "ai-threejs-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Three.js Studio — generate explorable 3D worlds from a single sentence.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run build:shared && concurrently -k -n shared,api,web -c yellow,cyan,magenta \"npm run dev -w @ai-three-studio/shared\" \"npm run dev -w @ai-three-studio/server\" \"npm run dev -w @ai-three-studio/web\"",
+    "dev:web": "npm run dev -w @ai-three-studio/web",
+    "dev:server": "npm run dev -w @ai-three-studio/server",
+    "build:shared": "npm run build -w @ai-three-studio/shared",
+    "build": "npm run build:shared && npm run build -w @ai-three-studio/server && npm run build -w @ai-three-studio/web",
+    "typecheck": "npm run build:shared && npm run typecheck -w @ai-three-studio/server && npm run typecheck -w @ai-three-studio/web",
+    "test": "npm run build:shared && npm run test -w @ai-three-studio/server",
+    "test:export": "npm run test:export -w @ai-three-studio/web",
+    "start": "npm run start -w @ai-three-studio/server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">=20.19"
+  }
+}

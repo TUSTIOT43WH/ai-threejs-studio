@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.data/
+apps/server/.data/
+.env*
+!.env.example
+!**/.env.example
+*.local
+*.log
+*.tsbuildinfo
+.vite/
+*.pem
+*.key
+*.p12
+.DS_Store
+Thumbs.db
